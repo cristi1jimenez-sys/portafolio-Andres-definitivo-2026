@@ -412,46 +412,60 @@ export default function Home() {
             initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
             className="space-y-4"
           >
-            <div className="flex items-center gap-4 p-6 transition-colors border border-gray-800 bg-gray-900/40 rounded-2xl hover:border-blue-500/30">
-              <div className="w-12 h-12 bg-[#5865F2]/20 text-[#5865F2] rounded-xl flex items-center justify-center text-2xl">
+            {/* Botón Discord */}
+            <a href="https://discordapp.com/users/123jvandre_06363" target="_blank" rel="noopener noreferrer" className="bg-gray-900/40 border border-gray-800 p-6 rounded-2xl flex items-center gap-4 hover:border-[#5865F2]/50 transition-colors cursor-pointer w-full group">
+              <div className="w-12 h-12 bg-[#5865F2]/20 text-[#5865F2] rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
                 🎮
               </div>
               <div>
                 <p className="text-sm text-gray-400">Discord</p>
-                <p className="font-bold">123jvandre_06363</p>
+                <p className="font-bold text-white">123jvandre_06363</p>
               </div>
-            </div>
+            </a>
 
-            <div className="flex items-center gap-4 p-6 transition-colors border border-gray-800 bg-gray-900/40 rounded-2xl hover:border-blue-500/30">
-              <div className="flex items-center justify-center w-12 h-12 text-2xl text-red-500 bg-red-500/20 rounded-xl">
+            {/* Botón WhatsApp */}
+            <a href="https://wa.me/573102739099?text=Hola%20Andres,%20vi%20tu%20portafolio%20y%20quiero%20contactarte" target="_blank" rel="noopener noreferrer" className="bg-gray-900/40 border border-gray-800 p-6 rounded-2xl flex items-center gap-4 hover:border-green-500/50 transition-colors cursor-pointer w-full group">
+              <div className="w-12 h-12 bg-green-500/20 text-green-500 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                💬
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">WhatsApp</p>
+                <p className="font-bold text-white">Escríbeme directo</p>
+              </div>
+            </a>
+
+            {/* Botón Email */}
+            <a href="mailto:cristi1jimenez@gmail.com" className="bg-gray-900/40 border border-gray-800 p-6 rounded-2xl flex items-center gap-4 hover:border-red-500/50 transition-colors cursor-pointer w-full group">
+              <div className="w-12 h-12 bg-red-500/20 text-red-500 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
                 ✉️
               </div>
               <div>
                 <p className="text-sm text-gray-400">Email</p>
-                <p className="font-bold">cristi1jimenez@gmail.com</p>
+                <p className="font-bold text-white">cristi1jimenez@gmail.com</p>
               </div>
-            </div>
+            </a>
           </motion.div>
 
-          {/* Formulario de Contacto */}
+          {/* Formulario de Contacto Activo */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-            className="p-8 border border-gray-800 bg-gray-900/40 rounded-2xl"
+            className="bg-gray-900/40 border border-gray-800 p-8 rounded-2xl"
           >
-            <form className="flex flex-col space-y-4">
+            {/* LINK DE FORMSPREE AQUI */}
+            <form action="https://formspree.io/f/meedezva" method="POST" className="space-y-4 flex flex-col">
               <div>
-                <label className="block mb-1 text-sm text-gray-400">Tu Nombre</label>
-                <input type="text" placeholder="Ej. Juan Pérez" className="w-full px-4 py-3 text-white transition-colors bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500" />
+                <label className="text-sm text-gray-400 mb-1 block">Tu Nombre</label>
+                <input type="text" name="nombre" required placeholder="Ej. pepito Rodriguez" className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" />
               </div>
               <div>
-                <label className="block mb-1 text-sm text-gray-400">Correo Electrónico</label>
-                <input type="email" placeholder="correo@ejemplo.com" className="w-full px-4 py-3 text-white transition-colors bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500" />
+                <label className="text-sm text-gray-400 mb-1 block">Correo Electrónico</label>
+                <input type="email" name="email" required placeholder="correo@ejemplo.com" className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors" />
               </div>
               <div>
-                <label className="block mb-1 text-sm text-gray-400">Mensaje</label>
-                <textarea rows="4" placeholder="¿En qué te puedo ayudar?" className="w-full px-4 py-3 text-white transition-colors bg-gray-900 border border-gray-700 rounded-lg resize-none focus:outline-none focus:border-blue-500"></textarea>
+                <label className="text-sm text-gray-400 mb-1 block">Mensaje</label>
+                <textarea name="mensaje" required rows="4" placeholder="¿En qué te puedo ayudar?" className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"></textarea>
               </div>
-              <button type="button" className="w-full py-3 mt-2 font-bold text-white transition-colors bg-blue-600 rounded-lg hover:bg-blue-500">
+              <button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition-colors mt-2">
                 Enviar Mensaje
               </button>
             </form>
