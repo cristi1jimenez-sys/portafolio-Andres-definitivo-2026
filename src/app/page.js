@@ -106,22 +106,36 @@ export default function Home() {
           </motion.h2>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1">
           {/* Tarjeta de texto */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} 
-            className="p-8 border border-gray-800 bg-gray-900/40 rounded-2xl backdrop-blur-sm"
+         <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ duration: 0.6 }} 
+            className="p-8 mb-8 mx-auto max-w-4xl text-center border border-gray-800 bg-gray-900/40 rounded-2xl backdrop-blur-sm"
           >
-            <p className="mb-4 leading-relaxed text-gray-300">
+            <h6 className="mb-4 leading-relaxed text-gray-300">
               Hola, soy <strong className="text-white">Andres</strong>. Complemento mi perfil técnico como estudiante de Análisis y Desarrollo de Software con más de 6 años de experiencia en el área comercial, lo que me permite comprender las verdaderas necesidades del usuario final.
-            </p>
-            <p className="leading-relaxed text-gray-300">
+            </h6>
+            <h6 className="leading-relaxed text-gray-300">
               Tengo experiencia en la gestión de comunidades, administración de servidores de Minecraft (modding, Fabric, WorldEdit) y en el desarrollo de proyectos independientes como <strong className="text-white">Easily Work</strong>, mi propio software de gestión de inventarios. Mi enfoque es el liderazgo, la adaptación al cambio y la resolución eficiente de problemas.
-            </p>
+            </h6>
           </motion.div>
+          </div>
+
 
           {/* Tarjetas de estadísticas */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+             <motion.div 
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} 
+              className="flex flex-col items-center justify-center p-6 text-center transition-colors border border-gray-800 bg-gray-900/40 rounded-2xl hover:border-blue-500/50"
+            >
+              <span className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">3+</span>
+              <span className="mt-2 text-sm text-gray-400">Proyectos propios<br/>2 en desarrollo, 1 terminado.</span>
+            </motion.div>
+
             <motion.div 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} 
               className="flex flex-col items-center justify-center p-6 text-center transition-colors border border-gray-800 bg-gray-900/40 rounded-2xl hover:border-blue-500/50"
@@ -135,9 +149,9 @@ export default function Home() {
               className="flex flex-col items-center justify-center p-6 text-center transition-colors border border-gray-800 bg-gray-900/40 rounded-2xl hover:border-blue-500/50"
             >
               <span className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">SENA</span>
-              <span className="mt-2 text-sm text-gray-400">Etapa<br/>Productiva</span>
+              <span className="mt-2 text-sm text-gray-400">Tecnólogo en Análisis y <br/>Desarrollo de Software</span>
             </motion.div>
-          </div>
+          
         </div>
       </section>
 
@@ -239,7 +253,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold">Comcercializadora LCL </h3>
                 <span className="px-2 py-1 text-xs text-gray-300 bg-gray-800 rounded-full">2022-2024</span>
               </div>
-              <p className="mb-4 text-sm text-gray-400">Asesor comercial en colombina , Ejecución de estrategias de ventas en campo, atendiendo canal tradicional y moderno,cumpliendo con las metas mensuales y fortalecimiento de relaciones con clientes.</p>
+              <p className="mb-4 text-sm text-gray-400">Asesor comercial en colombina, Ejecución de estrategias de ventas en campo, atendiendo canal tradicional y moderno,cumpliendo con las metas mensuales y fortalecimiento de relaciones con clientes.</p>
               <div className="flex gap-2 text-xs text-gray-500">
                 <span className="px-2 py-1 bg-gray-800 rounded">Ventas</span>
                 <span className="px-2 py-1 bg-gray-800 rounded">Gestión de Clientes</span>
