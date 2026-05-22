@@ -74,7 +74,8 @@ export default function Home() {
         </motion.p>
 
         {/* Botón interactivo - Tiene hover integrado */}
-        <motion.button 
+        <motion.a 
+          href="#experiencia"
           whileHover={{ scale: 1.05 }} 
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, y: 20 }} 
@@ -84,7 +85,7 @@ export default function Home() {
         >
           VER TRAYECTORIA
           <span> =▷</span>
-        </motion.button>
+        </motion.a>
         
       </section>
 
