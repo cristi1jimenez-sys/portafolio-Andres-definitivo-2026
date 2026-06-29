@@ -14,7 +14,14 @@ export async function start() {
     id: "tsparticles",
     options: {
       preset: "hyperspace",
+      background: {
+        color: "#0d0d0d"
+      },
+      move: {
+        speed: 3
+      }
     },
+
   });
 }
 
@@ -28,4 +35,17 @@ export function resume() {
   if (container) {
     container.play();
   }
+
+
+  return (
+    <div className="fixed inset-0 -z-10 w-full h-full">
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={options}
+        className="w-full h-full"
+      />
+    </div>
+  );
 }
+
