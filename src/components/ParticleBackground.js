@@ -3,24 +3,22 @@
 import { useEffect, useState, useRef } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadHyperspacePreset } from "@tsparticles/preset-hyperspace";
-import type { Container } from "@tsparticles/engine";
 
 export default function SpaceBackground() {
   const [init, setInit] = useState(false);
-  // Usamos una referencia para guardar el contenedor de forma segura en React
-  const containerRef = useRef<Container | null>(null); 
+  const containerRef = useRef(null);
 
-  // 1. Inicializar el motor de partículas una sola vez
+  // 1. Inicializar el motor de partículas una sola vez al montar el componente
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadHyperspacePreset(engine);
     }).then(() => {
-      setInit(true); // Cambiado a true para saber que ya está listo
+      setInit(true);
     });
   }, []);
 
-  // 2. Opciones de configuración de la animación
-  const options: any = {
+  // 2. Opciones de configuración de la animación libres de errores de tipo
+  const options = {
     preset: "hyperspace",
     background: {
       color: "#0d0d0d",
@@ -32,23 +30,14 @@ export default function SpaceBackground() {
     },
   };
 
-  // Guardamos la instancia cuando el canvas esté listo en el DOM
-  const particlesLoaded = async (container?: Container): Promise<void> => {
+  // Guardamos la instancia del contenedor de manera segura
+  const particlesLoaded = async (container) => {
     if (container) {
       containerRef.current = container;
     }
   };
 
-  // Funciones de control por si necesitas pausar o reanudar desde tu interfaz
-  const pauseAnimation = () => {
-    containerRef.current?.pause();
-  };
-
-  const resumeAnimation = () => {
-    containerRef.current?.play();
-  };
-
-  // Si aún no se inicializa el motor, no renderizamos nada para evitar parpadeos
+  // Renderizar solo cuando el motor esté listo
   if (!init) return null;
 
   return (
