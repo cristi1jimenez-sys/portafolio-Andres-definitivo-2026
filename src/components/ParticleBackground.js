@@ -23,13 +23,13 @@ export default function ParticleBackground() {
       },
       modes: {
         repulse: {
-          distance: 120,
+          distance: 80,
           duration: 0.4,
         },
       },
     },
     particles: {
-      color: { value: ["#a855f7", "#FFFFFF"] }, // Morado y Blanco
+      color: { value: ["#FFFFFF", "#a855f7"] }, // Morado y Blanco
       links: {
         color: "#a855f7",
         distance: 150,
