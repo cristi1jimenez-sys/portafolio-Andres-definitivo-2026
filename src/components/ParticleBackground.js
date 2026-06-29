@@ -1,34 +1,50 @@
 "use client";
-import { tsParticles } from "@tsparticles/engine";
+
+import { useEffect, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadHyperspacePreset } from "@tsparticles/preset-hyperspace";
-let container;
 
-await loadHyperspacePreset(tsParticles);
+export default function SpaceBackground() {
+  const [init, setInit] = useState(false);
 
-export async function start() {
-  if (container) {
-    container.destroy();
-  }
+  // 1. Inicializar el motor de partículas una sola vez al montar el componente
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadHyperspacePreset(engine);
+    }).then(() => {
+      setInit(false); // Cambiar a true si deseas que espere la carga completa
+    });
+  }, []);
 
-  container = await tsParticles.load({
-    id: "tsparticles",
-    options: {
-      preset: "hyperspace",
-      background: {
-        color: "#0d0d0d"
-      },
-      move: {
-        speed: 3
-      }
+  // 2. Opciones de configuración de la animación
+  const options = {
+    preset: "hyperspace",
+    background: {
+      color: "#0d0d0d",
     },
+    particles: {
+      move: {
+        speed: 3,
+      },
+    },
+  };
 
-  });
-}
+  // Opcional: Si quieres guardar la instancia del contenedor para pausar/reproducir
+  const particlesLoaded = async (container) => {
+    // Aquí tienes acceso al objeto 'container' por si necesitas usar container.pause() o container.play()
+    console.log("Contenedor de partículas cargado", container);
+  };
 
-export function stop() {
-  if (container) {
-    container.pause();
-  }
+  return (
+    <div className="fixed inset-0 -z-10 w-full h-full">
+      <Particles
+        id="tsparticles"
+        particlesLoaded={particlesLoaded}
+        options={options}
+        className="w-full h-full"
+      />
+    </div>
+  );
 }
 
 export function resume() {
