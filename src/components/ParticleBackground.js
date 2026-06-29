@@ -47,7 +47,7 @@ export default function ParticleBackground() {
       },
       number: {
         density: { enable: true, area: 900 },
-        value: 80, // Cantidad de partículas
+        value: 180, // Cantidad de partículas
       },
       opacity: { value: 0.3 },
       shape: { type: "oval" },
