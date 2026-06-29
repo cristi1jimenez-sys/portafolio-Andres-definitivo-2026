@@ -23,13 +23,13 @@ export default function ParticleBackground() {
       },
       modes: {
         repulse: {
-          distance: 100,
+          distance: 120,
           duration: 0.4,
         },
       },
     },
     particles: {
-      color: { value: ["#a855f7", "#3b82f6"] }, // Morado y Azul
+      color: { value: ["#a855f7", "#FFFFFF"] }, // Morado y Blanco
       links: {
         color: "#a855f7",
         distance: 150,
@@ -46,11 +46,11 @@ export default function ParticleBackground() {
         straight: false,
       },
       number: {
-        density: { enable: true, area: 800 },
-        value: 50, // Cantidad de partículas
+        density: { enable: true, area: 900 },
+        value: 80, // Cantidad de partículas
       },
-      opacity: { value: 0.5 },
-      shape: { type: "circle" },
+      opacity: { value: 0.3 },
+      shape: { type: "oval" },
       size: { value: { min: 1, max: 3 } },
     },
     detectRetina: true,
